@@ -12,6 +12,16 @@ export async function currentUser(options?: { [key: string]: any }) {
   });
 }
 
+export async function currentUser2(options?: { [key: string]: any }) {
+  return request<{
+    data: API.CurrentUser;
+  }>('/api/v1/users/current_user/', {
+    method: 'GET',
+    ...(options || {}),
+  });
+}
+
+
 /** 退出登录接口 POST /api/login/outLogin */
 export async function outLogin(options?: { [key: string]: any }) {
   return request<Record<string, any>>('/api/login/outLogin', {
@@ -20,9 +30,27 @@ export async function outLogin(options?: { [key: string]: any }) {
   });
 }
 
+export async function outLogin2(options?: { [key: string]: any }) {
+  return request<Record<string, any>>('/api/v1/users/signout/', {
+    method: 'POST',
+    ...(options || {}),
+  });
+}
+
 /** 登录接口 POST /api/login/account */
 export async function login(body: API.LoginParams, options?: { [key: string]: any }) {
   return request<API.LoginResult>('/api/login/account', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    data: body,
+    ...(options || {}),
+  });
+}
+
+export async function login2(body: API.LoginParams, options?: { [key: string]: any }) {
+  return request<API.LoginResult>('/api/v1/users/signin/', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
