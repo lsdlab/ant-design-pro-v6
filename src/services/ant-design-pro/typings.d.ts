@@ -30,8 +30,8 @@ declare namespace API {
   };
 
   type PageParams = {
-    current?: number;
-    pageSize?: number;
+    page?: number;
+    page_size?: number;
   };
 
   type RuleListItem = {
@@ -56,15 +56,37 @@ declare namespace API {
     success?: boolean;
   };
 
+  type UserListItem = {
+    id?: number;
+    email?: boolean;
+    username?: string;
+    avatar?: string;
+    mobile?: string;
+    password_strength?: string;
+    is_superuser?: boolean;
+    is_staff?: boolean;
+    is_active?: boolean;
+    date_joined?: string;
+    last_login_ip?: string;
+    last_login?: number;
+  };
+
+  type UserList = {
+    results?: UserListItem[];
+    /** 列表的内容总数 */
+    count?: number;
+    next?: string;
+    previous?: string;
+  };
+
   type FakeCaptcha = {
     code?: number;
     status?: string;
   };
 
   type LoginParams = {
-    username?: string;
+    email?: string;
     password?: string;
-    autoLogin?: boolean;
     type?: string;
   };
 

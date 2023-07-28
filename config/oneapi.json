@@ -171,7 +171,7 @@
         "operationId": "rule",
         "parameters": [
           {
-            "name": "current",
+            "name": "page",
             "in": "query",
             "description": "当前的页码",
             "schema": {
@@ -179,7 +179,7 @@
             }
           },
           {
-            "name": "pageSize",
+            "name": "page_size",
             "in": "query",
             "description": "页面的容量",
             "schema": {
@@ -403,10 +403,10 @@
       "PageParams": {
         "type": "object",
         "properties": {
-          "current": {
+          "page": {
             "type": "number"
           },
-          "pageSize": {
+          "page_size": {
             "type": "number"
           }
         }

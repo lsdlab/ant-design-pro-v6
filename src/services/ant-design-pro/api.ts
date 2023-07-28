@@ -60,6 +60,23 @@ export async function login2(body: API.LoginParams, options?: { [key: string]: a
   });
 }
 
+export async function getUsers(
+  params: {
+    page?: number;
+    page_size?: number;
+  },
+  options?: { [key: string]: any },
+) {
+  console.log(params)
+  return request<API.UserList>('/api/v1/users/', {
+    method: 'GET',
+    params: {
+      ...params,
+    },
+    ...(options || {}),
+  });
+}
+
 /** 此处后端没有提供注释 GET /api/notices */
 export async function getNotices(options?: { [key: string]: any }) {
   return request<API.NoticeIconList>('/api/notices', {
@@ -75,7 +92,7 @@ export async function rule(
     /** 当前的页码 */
     current?: number;
     /** 页面的容量 */
-    pageSize?: number;
+    page_size?: number;
   },
   options?: { [key: string]: any },
 ) {

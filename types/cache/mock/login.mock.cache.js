@@ -312,8 +312,8 @@ module.exports = {
     ],
     total: 100,
     success: true,
-    pageSize: 20,
-    current: 1,
+    page_size: 20,
+    page: 1,
   },
   'POST /api/login/outLogin': { data: {}, success: true },
   'POST /api/login/account': {

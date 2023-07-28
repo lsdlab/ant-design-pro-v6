@@ -32,7 +32,7 @@ export default [
     path: '/admin',
     name: 'admin',
     icon: 'crown',
-    access: 'canAdmin',
+    // access: 'canAdmin',
     routes: [
       {
         path: '/admin',
@@ -46,10 +46,10 @@ export default [
     ],
   },
   {
-    name: 'list.table-list',
+    name: 'list.user-list',
     icon: 'table',
     path: '/list',
-    component: './TableList',
+    component: './UserList',
   },
   {
     path: '/',
