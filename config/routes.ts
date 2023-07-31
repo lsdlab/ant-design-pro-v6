@@ -52,6 +52,12 @@ export default [
     component: './UserList',
   },
   {
+    name: 'empty',
+    icon: 'table',
+    path: '/empty',
+    component: './EmptyPage',
+  },
+  {
     path: '/',
     redirect: '/welcome',
   },

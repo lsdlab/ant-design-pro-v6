@@ -21,6 +21,7 @@ export default {
   'menu.form.step-form.confirm': '分步表单（确认转账信息）',
   'menu.form.step-form.result': '分步表单（完成）',
   'menu.form.advanced-form': '高级表单',
+  'menu.empty': '空',
   'menu.list': '列表页',
   'menu.list.user-list': '用户列表',
   'menu.list.table-list': '查询表格',
