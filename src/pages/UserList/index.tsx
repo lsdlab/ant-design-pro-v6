@@ -93,9 +93,7 @@ const UserList: React.FC = () => {
         headerTitle='用户'
         actionRef={actionRef}
         rowKey="key"
-        search={{
-          labelWidth: 120,
-        }}
+        search={false}
         request={async (
           params: T & {
             page_size: number;
