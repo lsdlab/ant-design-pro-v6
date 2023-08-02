@@ -1,7 +1,8 @@
 import { PageContainer } from '@ant-design/pro-components';
 import { useModel } from '@umijs/max';
-import { Card, theme } from 'antd';
+import { Card, theme, Row, Col } from 'antd';
 import React from 'react';
+import { Gauge, Line } from '@ant-design/plots';
 
 /**
  * 每个单独的卡片，为了复用样式抽成了组件
@@ -86,6 +87,116 @@ const InfoCard: React.FC<{
 const Welcome: React.FC = () => {
   const { token } = theme.useToken();
   const { initialState } = useModel('@@initialState');
+
+  const DemoGauge = () => {
+    const config = {
+      percent: 0.75,
+      radius: 0.75,
+      range: {
+        color: '#30BF78',
+        width: 12,
+      },
+      indicator: {
+        pointer: {
+          style: {
+            stroke: '#D0D0D0',
+          },
+        },
+        pin: {
+          style: {
+            stroke: '#D0D0D0',
+          },
+        },
+      },
+      statistic: {
+        content: {
+          formatter: ({ percent }) => `Rate: ${(percent * 100).toFixed(0)}%`,
+        },
+        style: {
+          fontSize: 60,
+        },
+      },
+      gaugeStyle: {
+        lineCap: 'round',
+      },
+    };
+    return <Gauge {...config} />;
+  };
+
+  const DemoLine = () => {
+    const data = [
+      {
+        year: '1991',
+        value: 3,
+      },
+      {
+        year: '1992',
+        value: 4,
+      },
+      {
+        year: '1993',
+        value: 3.5,
+      },
+      {
+        year: '1994',
+        value: 5,
+      },
+      {
+        year: '1995',
+        value: 4.9,
+      },
+      {
+        year: '1996',
+        value: 6,
+      },
+      {
+        year: '1997',
+        value: 7,
+      },
+      {
+        year: '1998',
+        value: 9,
+      },
+      {
+        year: '1999',
+        value: 13,
+      },
+    ];
+    const config = {
+      data,
+      xField: 'year',
+      yField: 'value',
+      label: {},
+      point: {
+        size: 5,
+        shape: 'diamond',
+        style: {
+          fill: 'white',
+          stroke: '#5B8FF9',
+          lineWidth: 2,
+        },
+      },
+      tooltip: {
+        showMarkers: false,
+      },
+      state: {
+        active: {
+          style: {
+            shadowBlur: 4,
+            stroke: '#000',
+            fill: 'red',
+          },
+        },
+      },
+      interactions: [
+        {
+          type: 'marker-active',
+        },
+      ],
+    };
+    return <Line {...config} />;
+  };
+
   return (
     <PageContainer>
       <Card
@@ -157,6 +268,46 @@ const Welcome: React.FC = () => {
           </div>
         </div>
       </Card>
+
+      <Row
+        gutter={24}
+        style={{
+          marginTop: 24,
+          marginBottom: 24,
+        }}
+      >
+        <Col xl={12} lg={24} md={24} sm={24} xs={24}>
+          <Card
+            style={{
+              borderRadius: 8,
+            }}
+            bodyStyle={{
+              backgroundImage:
+                initialState?.settings?.navTheme === 'realDark'
+                  ? 'background-image: linear-gradient(75deg, #1A1B1F 0%, #191C1F 100%)'
+                  : 'background-image: linear-gradient(75deg, #FBFDFF 0%, #F5F7FF 100%)',
+            }}
+          >
+            <DemoGauge />
+          </Card>
+        </Col>
+
+        <Col xl={12} lg={24} md={24} sm={24} xs={24}>
+            <Card
+              style={{
+                borderRadius: 8,
+              }}
+              bodyStyle={{
+                backgroundImage:
+                  initialState?.settings?.navTheme === 'realDark'
+                    ? 'background-image: linear-gradient(75deg, #1A1B1F 0%, #191C1F 100%)'
+                    : 'background-image: linear-gradient(75deg, #FBFDFF 0%, #F5F7FF 100%)',
+              }}
+            >
+              <DemoLine />
+            </Card>
+        </Col>
+      </Row>
     </PageContainer>
   );
 };

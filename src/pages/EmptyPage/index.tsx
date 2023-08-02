@@ -4,10 +4,10 @@ import { Card, theme } from 'antd';
 import React from 'react';
 
 
-
 const EmptyPage: React.FC = () => {
   const { token } = theme.useToken();
   const { initialState } = useModel('@@initialState');
+
   return (
     <PageContainer>
       <Card
@@ -58,7 +58,7 @@ const EmptyPage: React.FC = () => {
               gap: 16,
             }}
           >
-            
+
           </div>
         </div>
       </Card>
