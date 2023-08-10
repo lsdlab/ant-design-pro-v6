@@ -232,8 +232,8 @@ const Welcome: React.FC = () => {
               fontSize: '14px',
               color: token.colorTextSecondary,
               lineHeight: '22px',
-              marginTop: 16,
-              marginBottom: 32,
+              marginTop: 8,
+              marginBottom: 24,
               width: '65%',
             }}
           >

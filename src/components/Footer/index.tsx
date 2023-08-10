@@ -21,8 +21,8 @@ const Footer: React.FC = () => {
         {
           key: 'BreakWire',
           title: 'BreakWire',
-          href: 'https://lsdlab.github.io',
-          blankTarget: true,
+          href: '/empty',
+          blankTarget: false,
         },
       ]}
     />

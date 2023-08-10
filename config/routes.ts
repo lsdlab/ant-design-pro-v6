@@ -58,6 +58,12 @@ export default [
     component: './EmptyPage',
   },
   {
+    name: 'login',
+    icon: 'smile',
+    path: '/user/login',
+    component: './User/Login',
+  },
+  {
     path: '/',
     redirect: '/welcome',
   },
