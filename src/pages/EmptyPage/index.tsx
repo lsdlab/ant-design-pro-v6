@@ -58,7 +58,6 @@ const EmptyPage: React.FC = () => {
               gap: 16,
             }}
           >
-
           </div>
         </div>
       </Card>

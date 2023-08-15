@@ -93,7 +93,7 @@ const Welcome: React.FC = () => {
       percent: 0.75,
       radius: 0.75,
       range: {
-        color: '#30BF78',
+        color: '#1890ff',
         width: 12,
       },
       indicator: {
@@ -168,31 +168,14 @@ const Welcome: React.FC = () => {
       yField: 'value',
       label: {},
       point: {
-        size: 5,
-        shape: 'diamond',
+        size: 4,
+        shape: 'round',
         style: {
           fill: 'white',
           stroke: '#5B8FF9',
           lineWidth: 2,
         },
-      },
-      tooltip: {
-        showMarkers: false,
-      },
-      state: {
-        active: {
-          style: {
-            shadowBlur: 4,
-            stroke: '#000',
-            fill: 'red',
-          },
-        },
-      },
-      interactions: [
-        {
-          type: 'marker-active',
-        },
-      ],
+      }
     };
     return <Line {...config} />;
   };
