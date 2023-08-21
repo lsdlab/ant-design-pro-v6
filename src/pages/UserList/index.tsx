@@ -1,13 +1,8 @@
 import { getUsers } from '@/services/ant-design-pro/api';
 import type { ActionType, ProColumns, ProDescriptionsItemProps } from '@ant-design/pro-components';
-import {
-  PageContainer,
-  ProDescriptions,
-  ProTable,
-} from '@ant-design/pro-components';
+import { PageContainer, ProDescriptions, ProTable } from '@ant-design/pro-components';
 import { Drawer } from 'antd';
 import React, { useRef, useState } from 'react';
-
 
 const UserList: React.FC = () => {
   const [showDetail, setShowDetail] = useState<boolean>(false);
@@ -90,10 +85,11 @@ const UserList: React.FC = () => {
   return (
     <PageContainer>
       <ProTable<API.UserListItem, API.PageParams>
-        headerTitle='用户'
+        headerTitle="用户"
         actionRef={actionRef}
         rowKey="key"
         search={false}
+        options={false}
         request={async (
           params: T & {
             page_size: number;
